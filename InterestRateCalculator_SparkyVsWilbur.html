@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+<meta charset="UTF-8" />
+		<meta name="author" content="John Pietrangelo" />
+		<!-- Title of page -->
+		<title>Inerest Rate Calculator</title>
+		<!-- CSS section -->
+<style>
+body
+{
+
+	background-color: rgb(160,160,160);
+	background-repeat: none;
+}
+
+.center
+{
+	text-align:center;
+}
+
+.sYSB
+{
+	padding: 0 4em 0 0em;
+	
+}
+
+.dataTR
+{
+	height: 1em; 
+	width:33%; 
+	text-align:center; 
+	text-shadow: .075em .075em rgb(12,35,75); 
+	font-size: 2.5em; font-weight:bold; 
+	color:rgb(255,198,39); 
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.oAStatBoxTable
+{
+	width:100%; 
+	text-align:left; 
+	font-size:1.1em; 
+	font-weight:bold; 
+	font-family: Arial, Helvetica, sans-serif; 
+	padding: 0em 0em 0em 7.5em;
+}
+
+.separateOAStatBox
+{
+	padding: 0em .5em 0em 1em;
+}
+
+.sparkyDataInput
+{
+	text-align: center; 
+	font-size: 1em; 
+	font-weight:bold; 
+	width: 4em; 
+	color: rgb(0,0,0);
+	text-shadow: .075em .075em rgb(255,198,39);
+	border-style: solid;
+	border-color:rgb(140,29,64);
+}
+
+.wilburDataInput
+{
+	text-align: center; 
+	font-size: 1em; 
+	font-weight:bold; 
+	width: 4em; 
+	color: rgb(0,0,0);
+	text-shadow: .075em .075em rgb(255,198,39);
+	border-style: solid;
+	border-color:rgb(140,29,64);
+}
+
+.dataInputButtons 
+{
+	text-align: center; 
+	font-size:.75em; 
+	font-weight:bold; 
+	width: 7.5em; 
+	color: rgb(12,35,75); 
+	text-shadow: .05em .05em rgb(140,29,64); 
+	background-color: rgb(255,198,39);
+	border-style: solid;
+	border-color:rgb(140,29,64);
+	border-radius: 2em;
+}
+
+#dataHeader
+{
+    text-shadow: 2px 2px rgb(255,198,39); 
+	color: rgb(140,29,64); 
+	background-color:rgb(255,255,255); 
+	text-align: Center; 
+	font-size:50px; 
+	margin: 0px 0px 0px 0px;
+}
+
+#dataTable
+{
+	width:100%;
+}
+
+#oAStatContainer 
+{ 
+	width: 100%; 
+	background-color: #ffcc33; 
+	margin: auto; 
+	height: 9em; 
+	border-style: solid;
+}
+
+#oAStatBoxSparky 
+{
+	width: 49.5%; 
+	float: left; 
+	height: 9em; 
+	color: rgb(140,29,64); 
+	background-color: rgb(255,198,39); 
+	text-align:center; 
+}
+
+#oAStatBoxWibur 
+{	
+	width: 50.5%; 
+	float: left; 
+	height: 9em; 
+	color: rgb(12,35,75); 
+	background-color: rgb(171,5,32);
+	text-align:center; 
+}
+
+#yearlyStatContainer 
+{
+	
+	font-size: 1.5em; 
+	width: 100%; 
+	background-color: #ffcc33; 
+	margin: auto; height:auto;
+}
+
+#yearlyStatBoxSparky 
+{
+	text-align: right;
+	width: 47.5%; 
+	float: left; 
+	height:auto; color: rgb(140,29,64); 
+	background-color: rgb(255,198,39);
+}
+
+#yearlyCountBox 
+{
+	width: 5%; 
+	float: left; 
+	height:auto; color: rgb(255,255,255); 
+	background-color: rgb(0,0,0);
+}
+
+#yearlyStatBoxWilbur 
+{
+	text-align: right;
+	width: 47.5%; 
+	float: left; 
+	height:auto; 
+	color: rgb(12,35,75); 
+	background-color: rgb(171,5,32);
+}
+
+input:invalid 
+{
+border: 2px solid red;
+
+}
+input:focus:invalid 
+{ 
+color: red; 
+}
+
+input:focus:valid 
+{ 
+color: black; 
+}
+</style>
+</Head>
+
+<body>
+
+<p id = cSSLabel>
+    <a href="http://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="http://jigsaw.w3.org/css-validator/images/vcss"
+            alt="Valid CSS!" />
+    </a>
+</p>
+
+<h1 id = "dataHeader"> MEASURE MONEY AT WORK</h1>
+
+<form>
+	<table id = "dataTable">
+		<tr class = "dataTR">
+			<th class = "dataTH">SPARKY</th>
+			<th class = "dataTH">Vs.</th>
+			<th class = "dataTH">WILBUR</th>
+		</tr>
+		<tr class = "dataTR">
+			<td><input class = "sparkyDataInput" type="number" id="sparkyYearlySaveAmount" value="" min="0"	max="100000" step="any" placeholder="Sparky" required></td>
+			<td>Annual Saving</td>
+			<td><input class = "wilburDataInput" type="number" id="wilburYearlySaveAmount" value="" min="0"	max="100000" step="any" placeholder="Wilbur" required></td>
+		</tr>
+		<tr class = "dataTR">
+			<td><input class = "sparkyDataInput" type="number" id="sparkyInterestRate" value="" min="0"	max="1" step="any" placeholder="Roars" required></td>
+			<td>Interest Rate</td>
+			<td><input class = "wilburDataInput" type="number" id="wilburInterestRate" value="" min="0"	max="1" step="any" placeholder="Cries" required></td>
+		</tr>
+		<tr class = "dataTR">
+			<td><input class = "sparkyDataInput" type="number" id="sparkyYearsTracked" value="" min="0"	max="99" step="any" placeholder='"FEAR' required></td>
+			<td>Years Tracked</td>
+			<td><input class = "wilburDataInput" type="number" id="wilburYearsTracked" value="" min="0"	max="99" step="any" placeholder="Out" required></td>
+		</tr>
+		<tr class = "dataTR">
+			<td><input class = "sparkyDataInput" type="number" id="sparkyStartYear" value="" min="0"	max="99" step="any" placeholder="THE" required></td>
+			<td>Start Year</td>
+			<td><input class = "wilburDataInput" type="number" id="wilburStartYear" value="" min="0"	max="99" step="any" placeholder='"BEAR' required></td>
+		</tr>
+		<tr class = "dataTR">
+			<td><input class = "sparkyDataInput" type="number" id="sparkyStopYear" value="" min="0"	max="99" step="any" placeholder='FORK"' required></td>
+			<td>Stop Year</td>
+			<td><input class = "wilburDataInput" type="number" id="wilburStopYear" value="" min="0"	max="99" step="any" placeholder='DOWN"' required></td>
+		</tr>
+		<tr  class = "dataTR">
+			<td ><button class = "dataInputButtons" type="button" id="defaultBtn" onclick="Default()">DEFAULT</button></td>
+			<td ><button class = "dataInputButtons" type="button" id="clearBtn" onclick= "ResetChange()">CLEAR</button></td>
+			<td ><button class = "dataInputButtons" type="button" id="doItBtn" onclick="Custom()">DO IT</button></td>
+		</tr> 
+	</table>
+</form>
+
+<div id= "oAStatContainer">
+  
+	<div id= "oAStatBoxSparky">
+		<h2 class = "center"><u>SPARKY'S OVERALL STATS</u></h2>
+			<table class= "oAStatBoxTable">
+				<tr >
+					<td>Total Investment Amount:</td>
+					<td class = "separateOAStatBox" id = "totSavingSparky">0</td>
+				</tr>
+				<tr >
+					<td>Total Interest:</td>
+					<td class = "separateOAStatBox" id = "totInterestSparky">0</td>
+				</tr>
+				<tr >
+					<td>Retirement Nest-Egg Amount:</td>
+					<td class = "separateOAStatBox" id = "endingBalanceSparky">0</td>
+				</tr>
+			</table>
+    </div>
+	
+	<div id="oAStatBoxWibur">
+		<h2 class = "center"><u>WILBUR'S OVERALL STATS</u></h2>
+			<table class="oAStatBoxTable">
+				<tr >
+					<td>Total Investment Amount:</td>
+					<td class = "separateOAStatBox" id = "totSavingWilbur">0</td>
+				</tr>
+				<tr >
+					<td>Total Interest:</td>
+					<td class = "separateOAStatBox" id = "totInterestWilbur">0</td>
+				</tr>
+				<tr >
+					<td>Retirement Nest-Egg Amount:</td>
+					<td class = "separateOAStatBox" id = "endingBalanceWilbur">0</td>
+				</tr>
+			</table>
+	</div>
+	
+</div>
+
+<div  id="yearlyStatContainer">
+
+	<div id="yearlyStatBoxSparky">
+		<h3 class = "center"><u>SPARKY'S YEARLY SAVINGS</u></h3>
+			<table id = "sparkyTable">
+				<tr>
+					<th class = "sYSB"><u>Savings</u></th><th class = "sYSB"><u>Interest</u></th><th class = "sYSB"><u>Balance</u></th>
+				</tr>
+			</table>
+	</div>
+  
+	<div id="yearlyCountBox">
+		<h3 class = "sYSB"><u>*YR*</u></h3>
+			<table id = "yearTable">
+				<tr>
+					<th class = "sYSB">*****</th>
+				</tr>
+			</table>
+	</div>
+	
+	<div id="yearlyStatBoxWilbur">
+		<h3 class = "center"><u>WILBUR'S YEARLY SAVINGS</u></h3>
+			<table id = "wilburTable">
+				<tr>
+					<th class = "sYSB"><u>Savings</u></th><th class = "sYSB"><u>Interest</u></th><th class = "sYSB"><u>Balance</u></th>
+				</tr>
+			</table>
+	</div>
+	
+</div>
+
+<script>
+//To hide output display.
+document.getElementById("oAStatContainer").style.visibility = "hidden";
+document.getElementById("yearlyStatContainer").style.visibility = "hidden";
+
+// To Declare All static variables with in "this" Java Script.
+var yearlySaveAmount;
+var interestRate;
+var yearsUntilRetirement;
+
+// To Initilize and/or Declare Sparky object orientated variables.
+var sparkyYearlySaveAmount = Number(document.getElementById("sparkyYearlySaveAmount").value);
+var sparkyInterestRate = Number(document.getElementById("sparkyInterestRate").value);
+var sparkyYearsTracked = Number(document.getElementById('sparkyYearsTracked').value);
+var sparkyStartYear = Number(document.getElementById('sparkyStartYear').value);
+var sparkyStopYear = Number(document.getElementById('sparkyStopYear').value);
+var startSavingSparky;
+var stopSavingSparky;
+var curSavingSparky;
+var totSavingSparky1;
+var totSavingsSparky;
+var curInterestSparky;
+var curInterestSparky1;
+var totInterestSparky;
+var totInterestSparky1;
+var endingBalanceSparky;
+var endingBalanceSparky1;
+
+// To Initilize and/or Declare Wilbur object orientated variables.
+var wilburYearlySaveAmount = Number(document.getElementById('wilburYearlySaveAmount').value);
+var wilburInterestRate = Number(document.getElementById('wilburInterestRate').value);
+var wilburYearsTracked = Number(document.getElementById('wilburYearsTracked').value);
+var wilburStartYear = Number(document.getElementById('wilburStartYear').value);
+var wilburStopYear = Number(document.getElementById('wilburStopYear').value);
+var startSavingWilbur;
+var stopSavingWilbur;
+var curSavingWilbur;
+var totSavingWilbur;
+var totSavingWilbur1;
+var curInterestWilbur;
+var curInterestWilbur1;
+var totInterestWilbur;
+var totInterestWilbur1;
+var endingBalanceWilbur;
+var endingBalanceWilbur1;
+
+/* To Declare and Initilize output data Display tables; the Display table's rows & their respective cells.*/
+var tableS = document.getElementById("sparkyTable");
+var tableY = document.getElementById("yearTable");
+var tableW = document.getElementById("wilburTable");
+var rowS;
+var rowW;
+var rowY;
+var cellS1;
+var cellS2;
+var cellS3;
+var cellW1;
+var cellW2;
+var cellW3;
+var cellY;
+
+/* This Method is called when user clicks on the to rest all variables to zero; 
+   To delete "all" rows created by the most recent creation of constructed rows,
+   created to display user request; To set all text box values to null; 
+   To "hide" containers which hold display information*/
+function ResetChange() 
+{ 
+	// If/else statement to find the object with greatest "yearsTracked", from the most resent construction.
+	if(sparkyYearsTracked >= wilburYearsTracked)	
+	{
+		for(var i = 1; i <= Number(sparkyYearsTracked); i++)
+		{
+			tableY.deleteRow(1);
+		}
+	}
+	else
+	{
+		for(var i = 1; i <= wilburYearsTracked; i++)
+		{	
+			tableY.deleteRow(1);
+		}
+	}
+	
+    // Loop to delete the same number of years rows as the object with greatest "yearsTracked" from the most resent construction.
+	for(var i = 1; i <= sparkyYearsTracked; i++)
+	{
+		tableS.deleteRow(1);
+	}
+	
+	for(var i = 1; i <= wilburYearsTracked; i++)
+	{	
+		tableW.deleteRow(1);
+	}
+	// To show the "Calculation" buttons, so to enable them for use.
+    document.getElementById("defaultBtn").style.visibility = "visible";
+	document.getElementById("doItBtn").style.visibility = "visible";
+	
+	//To empty "Form Input" text boxes.
+	document.getElementById("sparkyYearlySaveAmount").value = "";
+	document.getElementById("sparkyInterestRate").value = "";
+	document.getElementById("sparkyYearsTracked").value = "";
+	document.getElementById("sparkyStartYear").value = "";
+	document.getElementById("sparkyStopYear").value = "";
+	document.getElementById("wilburYearlySaveAmount").value = "";
+	document.getElementById("wilburInterestRate").value = "";
+	document.getElementById("wilburYearsTracked").value = "";
+	document.getElementById("wilburStartYear").value = "";
+	document.getElementById("wilburStopYear").value = "";
+	
+	//To set variables to "0". In anticipation for next value input.
+	curSavingSparky = 0;
+	totSavingSparky = 0;
+	curInterestSparky = 0;
+	totInterestSparky = 0;
+	endingBalanceSparky = 0;
+	curSavingWilbur = 0;
+	totSavingWilbur = 0;
+	curInterestWilbur = 0;
+	totInterestWilbur = 0;
+	endingBalanceWilbur = 0;
+	sparkyYearsTracked =0;
+	wilburYearsTracked = 0;
+	
+	//To hide output display.
+	document.getElementById("oAStatContainer").style.visibility = "hidden";
+	document.getElementById("yearlyStatContainer").style.visibility = "hidden";
+}
+
+/* Method called to Calculate pre-defined input Data and Display the resulting Information (in an eye pleaseing manner)*/
+function Default()
+{ 
+
+
+	// To initialize and display pre-defined values to of the calculation variables in the data-input textboxes. 
+	document.getElementById("sparkyYearlySaveAmount").value = 5000;
+	document.getElementById("sparkyInterestRate").value = 0.1;
+	document.getElementById("sparkyYearsTracked").value = 50;
+	document.getElementById("sparkyStartYear").value = 1;
+	document.getElementById("sparkyStopYear").value = 10;
+	document.getElementById("wilburYearlySaveAmount").value = 5000;
+	document.getElementById("wilburInterestRate").value = 0.1;
+	document.getElementById("wilburYearsTracked").value = 50;
+	document.getElementById("wilburStartYear").value = 11;
+	document.getElementById("wilburStopYear").value = 50;
+	document.getElementById("oAStatContainer").style.visibility = "visible";
+	document.getElementById("yearlyStatContainer").style.visibility = "visible";
+	document.getElementById("doItBtn").style.visibility = "hidden";
+	document.getElementById("defaultBtn").style.visibility = "hidden";
+	
+	// To declare "this" method variable values
+	yearlySaveAmount = 5000;
+	interestRate = 0.10;
+	sparkyYearsTracked = 50;
+	wilburYearsTracked = 50;
+	startSavingSparky = 1;
+	stopSavingSparky = 10;
+	curSavingSparky = 0;
+	totSavingSparky = 0;
+	curInterestSparky = 0;
+	totInterestSparky = 0;
+	endingBalanceSparky = 0;
+	startSavingWilbur = 11;
+	stopSavingWilbur = 50;
+	curSavingWilbur = 0;
+	totSavingWilbur = 0;
+	curInterestWilbur = 0;
+	totInterestWilbur = 0;
+	endingBalanceWilbur = 0;
+	
+	// Loop to add annual savings for the years specified by defualt to Sparky's overall accumulative savings total
+	for(var i = 1; i <= sparkyYearsTracked; i++)
+	{
+		if(i >= startSavingSparky && i <= stopSavingSparky )
+		{
+			curSavingSparky = yearlySaveAmount;
+		}
+		else
+		{
+			curSavingSparky = 0;
+		}
+		
+		// To store the calculated value of user input.  
+		curInterestSparky1 = ((endingBalanceSparky + curSavingSparky)* interestRate);
+		endingBalanceSparky1 = (endingBalanceSparky + curSavingSparky + curInterestSparky1);
+		totInterestSparky1 = totInterestSparky + curInterestSparky1;
+		totSavingSparky1 = totSavingSparky + curSavingSparky;
+	
+		// to create a row to display the cells holding the output information.
+		rowS = tableS.insertRow(i);
+	
+		// to create the cells holding the output information.
+		cellS1 = rowS.insertCell(0);
+		cellS2 = rowS.insertCell(1);
+		cellS3 = rowS.insertCell(2);
+	
+		/*To store data in variables, in number datatype, without decimal value.
+		In order to change the value in to-string form, preparing value for comma formatting  */
+		totSavingSparky = Number(totSavingSparky1.toFixed(0));
+		endingBalanceSparky = Number(endingBalanceSparky1.toFixed(0));
+		curInterestSparky = Number(curInterestSparky1.toFixed(0));
+	
+		//  To display numbers with comma formating
+		cellS1.innerHTML = "$" + curSavingSparky.toLocaleString("en");
+		cellS2.innerHTML = "$" + curInterestSparky.toLocaleString("en");
+		cellS3.innerHTML = "$" + endingBalanceSparky.toLocaleString("en");
+	
+		// to insert a row and cell, dispaying each year tracked with an astrix on both sides, used to boarder years in display.
+		rowY = tableY.insertRow(i);
+		cellY = rowY.insertCell(0);
+		cellY.innerHTML = ("* "+i+" *");
+	}
+	
+	// Loop to add annual savings for the years specified by defualt to Wilbur's overall accumulative savings total.
+	for(var i = 1; i <= wilburYearsTracked; i++)
+	{	
+		if(i >= startSavingWilbur && i <= stopSavingWilbur )
+		{
+			curSavingWilbur = yearlySaveAmount;
+		}
+		else
+		{
+			curSavingWilbur = 0;
+		}
+    
+		// To store the calculated value of user input.
+		curInterestWilbur1 = ((endingBalanceWilbur + curSavingWilbur)* interestRate);
+		endingBalanceWilbur1 = (endingBalanceWilbur + curSavingWilbur + curInterestWilbur1);
+		totInterestWilbur1 = totInterestWilbur + curInterestWilbur1;
+		totSavingWilbur1 = totSavingWilbur + curSavingWilbur;
+	
+		// to create a row to display the cells holding the output information.
+		rowW = tableW.insertRow(i);
+	
+		// to create the cells holding the output information.	
+		cellW1 = rowW.insertCell(0);
+		cellW2 = rowW.insertCell(1);
+		cellW3 = rowW.insertCell(2);
+	
+		/*To store data in variables, in number datatype, without decimal value.
+		In order to change the value in to-string form, preparing value for comma formatting  */
+		totSavingWilbur = Number(totSavingWilbur1.toFixed(0));
+		endingBalanceWilbur = Number(endingBalanceWilbur1.toFixed(0));
+		curInterestWilbur = Number(curInterestWilbur1.toFixed(0));
+	
+		//  To display numbers with comma formating.
+		cellW1.innerHTML = "$" + curSavingWilbur.toLocaleString("en");
+		cellW2.innerHTML = "$" + curInterestWilbur.toLocaleString("en");
+		cellW3.innerHTML = "$" + endingBalanceWilbur.toLocaleString("en");
+	} 
+	
+	/*To store data in variables, in number datatype, without decimal value.
+	In order to change the value in to-string form, preparing value for comma formatting  */
+	totInterestSparky = Number(totInterestSparky1.toFixed(0));
+	totSavingSparky = Number(totSavingSparky1.toFixed(0));
+	totInterestWilbur = Number(totInterestWilbur1.toFixed(0));
+	totSavingWilbur = Number(totSavingWilbur1.toFixed(0));
+	
+	//  To display overall numbers with comma formating. 
+	document.getElementById("totSavingSparky").innerHTML = "$" + totSavingSparky.toLocaleString("en");
+	document.getElementById("totInterestSparky").innerHTML = "$" +totInterestSparky.toLocaleString("en");
+	document.getElementById("endingBalanceSparky").innerHTML = "$" +endingBalanceSparky.toLocaleString("en");
+	document.getElementById("totSavingWilbur").innerHTML = "$" +totSavingWilbur.toLocaleString("en");
+	document.getElementById("totInterestWilbur").innerHTML = "$" +totInterestWilbur.toLocaleString("en");
+	document.getElementById("endingBalanceWilbur").innerHTML = "$" +endingBalanceWilbur.toLocaleString("en");
+}
+
+function Custom()
+{
+	debugger;
+	if (Number(document.getElementById('sparkyYearsTracked')).value < Number(document.getElementById('sparkyStartYear')).value 
+		|| Number(document.getElementById('sparkyStartYear')).value > Number(document.getElementById('sparkyStopYear')).value
+		|| Number(document.getElementById('wilburYearsTracked')).value < Number(document.getElementById('wilburStartYear')).value 
+		|| Number(document.getElementById('wilburStartYear')).value > Number(document.getElementById('wilburStopYear')).value) 
+	{
+		alert("There are input errors!! \n Please try again.");
+	}
+	else
+	{
+		// To initialize variables with user input. 
+		sparkyYearsTracked = Number(document.getElementById('sparkyYearsTracked').value);
+		sparkyYearlySaveAmount = Number(document.getElementById("sparkyYearlySaveAmount").value);
+		sparkyInterestRate = Number(document.getElementById("sparkyInterestRate").value);
+		startSavingSparky = Number(document.getElementById('sparkyStartYear').value);
+		stopSavingSparky = Number(document.getElementById('sparkyStopYear').value);
+
+		// To Clear variable values, in anticipation for next calculation.
+		curSavingSparky = 0;
+		totSavingSparky = 0;
+		curInterestSparky = 0;
+		totInterestSparky = 0;
+		endingBalanceSparky = 0;
+		curSavingWilbur = 0;
+		totSavingWilbur = 0;
+		curInterestWilbur = 0;
+		totInterestWilbur = 0;
+		endingBalanceWilbur = 0;
+
+		// To initialize variables with user input.
+		wilburYearsTracked = Number(document.getElementById('wilburYearsTracked').value);
+		wilburYearlySaveAmount = Number(document.getElementById("wilburYearlySaveAmount").value);
+		wilburInterestRate = Number(document.getElementById("wilburInterestRate").value);
+		startSavingWilbur = Number(document.getElementById('wilburStartYear').value);
+		stopSavingWilbur = Number(document.getElementById('wilburStopYear').value);
+	
+		// To show output Display.
+		document.getElementById("oAStatContainer").style.visibility = "visible";
+		document.getElementById("yearlyStatContainer").style.visibility = "visible";
+
+		// To hide Calculation buttons.
+		document.getElementById("defaultBtn").style.visibility = "hidden";
+		document.getElementById("doItBtn").style.visibility = "hidden";
+
+		// Loop to add the same number of "Year" rows as the object with greatest "yearsTracked" from user input.
+		for(var i = 1; i <= Number(sparkyYearsTracked); i++)
+		{
+			if(i >= startSavingSparky && i <= stopSavingSparky )
+			{
+				curSavingSparky = sparkyYearlySaveAmount;
+			}
+			else
+			{
+				curSavingSparky = 0;
+			}
+
+			// To store the calculated value of user input. 
+			curInterestSparky1 = ((endingBalanceSparky + curSavingSparky)* sparkyInterestRate);
+			endingBalanceSparky1 = (endingBalanceSparky + curSavingSparky + curInterestSparky1);
+			totInterestSparky1 = totInterestSparky + curInterestSparky1;
+			totSavingSparky1 = totSavingSparky + curSavingSparky;
+	
+			// to create a row to display the cells holding the output information.
+			rowS = tableS.insertRow(i);
+	
+			// to create the cells holding the output information.
+			cellS1 = rowS.insertCell(0);
+			cellS2 = rowS.insertCell(1);
+			cellS3 = rowS.insertCell(2);
+	
+			/*To store data in variables, in number datatype, without decimal value.
+			In order to change the value in to-string form, preparing value for comma formatting  */
+			totSavingSparky = Number(totSavingSparky1.toFixed(0));
+			endingBalanceSparky = Number(endingBalanceSparky1.toFixed(0));
+			curInterestSparky = Number(curInterestSparky1.toFixed(0));
+	
+			//  To display numbers with comma formating.
+			cellS1.innerHTML = "$" + curSavingSparky.toLocaleString("en");
+			cellS2.innerHTML = "$" + curInterestSparky.toLocaleString("en");
+			cellS3.innerHTML = "$" + endingBalanceSparky.toLocaleString("en");
+		
+		}
+	}
+	
+	// Loop to add annual year  the years specified by defualt to Sparky's overall accumulative savings total.
+	if(sparkyYearsTracked >= wilburYearsTracked)	
+	{
+		for(var i = 1; i <= Number(sparkyYearsTracked); i++)
+		{
+			var rowY = tableY.insertRow(i);
+			var cellY = rowY.insertCell(0);
+			cellY.innerHTML = ("* "+i+" *");
+		}
+	}
+	else
+	{
+		for(var i = 1; i <= wilburYearsTracked; i++)
+		{	
+			var rowY = tableY.insertRow(i);
+			var cellY = rowY.insertCell(0);
+			cellY.innerHTML = ("* "+i+" *");
+		}
+	}
+
+	// Loop to add annual savings for the years specified by defualt to Wilbur's overall accumulative savings total.	
+	for(var i = 1; i <= wilburYearsTracked; i++)
+	{	
+		if(i >= startSavingWilbur && i <= stopSavingWilbur )
+		{
+			curSavingWilbur = wilburYearlySaveAmount;
+		}
+		else
+		{
+			curSavingWilbur = 0;
+		}
+		
+		// To store the calculated value of user input.   
+		curInterestWilbur1 = ((endingBalanceWilbur + curSavingWilbur)* wilburInterestRate);
+		endingBalanceWilbur1 = (endingBalanceWilbur + curSavingWilbur + curInterestWilbur1);
+		totInterestWilbur1 = totInterestWilbur + curInterestWilbur1;
+		totSavingWilbur1 = totSavingWilbur + curSavingWilbur;
+	
+		// to create a row to display the cells holding the output information.
+		rowW = tableW.insertRow(i);
+	
+		// to create the cells holding the output information.
+		cellW1 = rowW.insertCell(0);
+		cellW2 = rowW.insertCell(1);
+		cellW3 = rowW.insertCell(2);
+	
+		/*To store data in variables, in number datatype, without decimal value.
+		In order to change the value in to-string form, preparing value for comma formatting  */
+		totSavingWilbur = Number(totSavingWilbur1.toFixed(0));
+		endingBalanceWilbur = Number(endingBalanceWilbur1.toFixed(0));
+		curInterestWilbur = Number(curInterestWilbur1.toFixed(0));
+	
+		//  To display numbers with comma formating.
+		cellW1.innerHTML = "$" + curSavingWilbur.toLocaleString("en");
+		cellW2.innerHTML = "$" + curInterestWilbur.toLocaleString("en");
+		cellW3.innerHTML = "$" + endingBalanceWilbur.toLocaleString("en");
+	}
+	
+	/*To store data in variables, in number datatype, without decimal value.
+	In order to change the value in to-string form, preparing value for comma formatting  */
+	totInterestSparky = Number(totInterestSparky1.toFixed(0));
+	totSavingSparky = Number(totSavingSparky1.toFixed(0));
+	totInterestWilbur = Number(totInterestWilbur1.toFixed(0));
+	totSavingWilbur = Number(totSavingWilbur1.toFixed(0));
+	
+	//  To display overall numbers with comma formating.
+	document.getElementById("totSavingSparky").innerHTML = "$" + totSavingSparky.toLocaleString("en");
+	document.getElementById("totInterestSparky").innerHTML = "$" +totInterestSparky.toLocaleString("en");
+	document.getElementById("endingBalanceSparky").innerHTML = "$" +endingBalanceSparky.toLocaleString("en");
+	document.getElementById("totSavingWilbur").innerHTML = "$" +totSavingWilbur.toLocaleString("en");
+	document.getElementById("totInterestWilbur").innerHTML = "$" +totInterestWilbur.toLocaleString("en");
+	document.getElementById("endingBalanceWilbur").innerHTML = "$" +endingBalanceWilbur.toLocaleString("en");
+}
+</script>
+ </body>
+ </html>
